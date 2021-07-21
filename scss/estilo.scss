@@ -1,4 +1,4 @@
-
+/* viejo
 header {
     width: 100vw;
     height: 100vh;
@@ -52,4 +52,36 @@ header {
     height: 35vh;
     background-color: #7746ff;
     border-radius: 40px;
+}
+*/
+.home{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+#pelis{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.contenedorPeli{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    width: 200px;
+    height: auto;
+    margin-top: 20px;
+}
+
+img{
+    padding-top: 5px;
+    width: 100px;
+    height: auto;
 }
