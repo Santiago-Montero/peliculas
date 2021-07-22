@@ -45,6 +45,10 @@ $("#barra").change(function buscar() {
                                 <p>Anio Estreno: ${peli.anio}</p>
                             </div>
         `)
+        // $(".home").css('background-image', `url("${peli.img}")`)
+        $(".home").css({    "background-image": `url("${peli.img}")`,
+                            "background-size" : "contain"
+        })
     }
     $("#pelis2").slideDown()
     arrayConPelis.pop()
