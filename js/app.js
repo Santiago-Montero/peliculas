@@ -54,6 +54,18 @@ $("#barra").change(function buscar() {
     arrayConPelis.pop()
 })
 
+$(".modoDia").hide()
+$(".modoNoche").click(function animacionNoche (){
+    $("body").css( "background", "black")
+    $(".modoNoche").hide()
+    $(".modoDia").show()
+})
+$(".modoDia").click(function animacionDia (){
+    $("body").css( "background", "white")
+    $(".modoDia").hide()
+    $(".modoNoche").show()
+})
+
 $("#barra").hide()
 $("#boton").click(function animacionBoton (){
     $("#barra").toggle()
