@@ -54,18 +54,36 @@ $("#barra").change(function buscar() {
     arrayConPelis.pop()
 })
 
-$(".modoDia").hide()
-$(".modoNoche").click(function animacionNoche (){
-    $("body").css( "background", "black")
-    $(".modoNoche").hide()
-    $(".modoDia").show()
-})
-$(".modoDia").click(function animacionDia (){
-    $("body").css( "background", "white")
-    $(".modoDia").hide()
-    $(".modoNoche").show()
-})
 
+
+// DARK MODE
+if(localStorage.getItem("fondo") == "dia"){
+    dia()
+}else if (localStorage.getItem("fondo") == "noche") {
+    noche()
+}else {
+    dia()
+}
+
+$(".cambiarFondo").click(function cambiarFondo(){
+    if(localStorage.getItem("fondo") == "dia"){
+        noche()
+        console.log("hola")
+    }else{
+        if(localStorage.getItem("fondo") == "noche"){
+            dia()
+        }
+    }
+})
+function noche(){
+    $("body").css( "background", "black")
+    localStorage.setItem("fondo", "noche")
+}
+function dia(){
+    $("body").css( "background", "white")
+    localStorage.setItem("fondo", "dia")
+}
+// DARK MODE
 $("#barra").hide()
 $("#boton").click(function animacionBoton (){
     $("#barra").toggle()
