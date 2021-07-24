@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap");
+* {
+  font-family: 'Nunito', sans-serif; }
+
 .home {
   display: flex;
   flex-flow: column wrap;
@@ -19,7 +23,7 @@
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 20px;
-  width: 200px;
+  width: 250px;
   height: auto;
   margin-top: 20px; }
 
@@ -27,3 +31,21 @@ img {
   padding-top: 5px;
   width: 100px;
   height: auto; }
+
+.masInfo {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center; }
+  .masInfo .masInfoBtn button {
+    border-radius: 90%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18); }
+  .masInfo .masInfoBtn button:hover {
+    border: 4px dotted #fafafa; }
+  .masInfo .masInfoTexto {
+    display: none; }

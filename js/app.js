@@ -22,9 +22,16 @@ let mostrarPelis = (vectorPelis) =>{
         $("#pelis").append(`
                             <div id= "${peli.id}" class="contenedorPeli">
                                 <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
-                                <p>${peli.nombre}</p>
-                                <p>Genero: ${peli.genero}</p>
-                                <p>Anio Estreno: ${peli.anio}</p>
+                                <div class="masInfo"> 
+                                <p>${peli.nombre}</p> 
+                                    <div class="masInfoBtn">
+                                        <button>+</button>
+                                    </div>
+                                </div>
+                                <div class="masInfoTexto">
+                                        <p>Genero: ${peli.genero}</p>
+                                        <p>Anio Estreno: ${peli.anio}</p>
+                                </div>
                             </div>
         `)
         $("#pelis").hide()
@@ -40,12 +47,16 @@ $("#barra").change(function buscar() {
         $("#pelis2").append(`
                             <div id= "${peli.id}" class="contenedorPeli">
                                 <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
-                                <p>${peli.nombre}</p>
+                                <div class="masInfo"> 
+                                <p>${peli.nombre}</p> 
+                                    <div class="masInfoBtn">
+                                        <button>+</button>
+                                    </div>
+                                </div>
                                 <p>Genero: ${peli.genero}</p>
                                 <p>Anio Estreno: ${peli.anio}</p>
                             </div>
         `)
-        // $(".home").css('background-image', `url("${peli.img}")`)
         $(".home").css({    "background-image": `url("${peli.img}")`,
                             "background-size" : "contain"
         })
