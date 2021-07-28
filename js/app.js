@@ -25,7 +25,7 @@ let mostrarPelis = (vectorPelis) =>{
                                 <div class="masInfo"> 
                                 <p>${peli.nombre}</p> 
                                     <div class="masInfoBtn">
-                                        <button>+</button>
+                                        <button onclick="agregarAmiLista(${peli.id})">+</button>
                                     </div>
                                 </div>
                                 <div class="masInfoTexto">
@@ -50,7 +50,7 @@ $("#barra").change(function buscar() {
                                 <div class="masInfo"> 
                                 <p>${peli.nombre}</p> 
                                     <div class="masInfoBtn">
-                                        <button>+</button>
+                                        <button onclick="agregarAmiLista(${peli.id})">+</button>
                                     </div>
                                 </div>
                                 <p>Genero: ${peli.genero}</p>
@@ -58,14 +58,16 @@ $("#barra").change(function buscar() {
                             </div>
         `)
         $(".home").css({    "background-image": `url("${peli.img}")`,
-                            "background-size" : "contain"
+                            "background-size" : "contain",
+                            "heigth" : "1000px",
+                            "width" : "1000px" 
         })
     }
     $("#pelis2").slideDown()
+    $("#pelis").hide()
+    $(".homeContenedorMilista").hide()
     arrayConPelis.pop()
 })
-
-
 
 // DARK MODE
 if(localStorage.getItem("fondo") == "dia"){
@@ -101,6 +103,30 @@ $("#boton").click(function animacionBoton (){
 })
 $("#botonMostrar").click(function animacionBoton (){
     $("#pelis").fadeIn()
+})
+
+let agregarAmiLista = (id) => {
+    let peliAlistada = peliculas.filter(e => e.id == id)
+    listaPelis.push(peliAlistada[0])
+}
+$(".btnMiLista").click(function mostrarMiLista(){
+    $("#pelis").hide()
+    $("#pelis2").hide()
+    $(".homeContenedorMilista").show()
+    for(const peli of listaPelis){
+        $("#miLista").append(`
+                            <div class="contenedorPeli">
+                                <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
+                                <div class="masInfo"> 
+                                    <p>${peli.nombre}</p> 
+                                    <div class="masInfoBtn">
+                                        <button onclick="agregarAmiLista(${peli.id})">+</button>
+                                    </div>
+                                </div>
+                                <p>Genero: ${peli.genero}</p>
+                                <p>Anio Estreno: ${peli.anio}</p>
+                            </div> `)
+    }
 })
 
 mostrarPelis(peliculas)

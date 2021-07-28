@@ -9,34 +9,59 @@
 </head>
 <body>
     <header>
-        <nav>
+        <div class="titulo">
             <h1>Mis Pelis</h1>
+        </div>
+        <nav>
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">Categorias</a></li>
-                <ul>
+                <!-- <ul>
                     <li><button>Aventura</button></li>
                     <li><button>Terror</button></li>
                     <li><button>Accion</button></li>
                     <li><button>Drama</button></li>
                     <li><button>Ciencia Ficcion</butt></li>
                     <li><button>Animacion</button></li>
-                </ul>
-                <li><a href="">Mi lista</a></li>
+                </ul> -->
+                <li><button class="btnMiLista">Mi Lista</button></li>
             </ul>
+        </nav>
+        <div class="buscar">
             <button id="boton">Buscar</button>
             <input type="search" name="" id="barra">
             <button class="cambiarFondo">Cambiar Fondo</button>
-        </nav>
+        </div>
     </header>
-    <div class="home">
-        <button id="botonMostrar">Mostrar Todas Las pelis</button>
-        <div id= "pelis">
+    <div class="contenido">
+        <div class="inicio">
+            <div class="inicioForm">
+                <form class="form">
+                    <h2>Inicia Sesion</h2>
+                    <p><input type="text" class="formLlenar" id="nombre" placeholder="Nombre"></p>
+                    <p><input type="email" class="formLlenar" id="mail" placeholder="Mail"></p>
+                    <p><input type="text" class="formLlenar" id="contrasenia" placeholder="Contraseña"></p>
+                    <button class="botonInicio" id="btnInicioSesion">Enviar</button>
+                </form>
+            </div>
         </div>
-        <div id= "pelis2">
+        <div class="home">
+            <button id="botonMostrar">Mostrar Todas Las pelis</button>
+            <div id= "pelis" class="homeContenedorPeliculas">
+            </div>
+            <div id= "pelis2" class="homeContenedorPeliculas">
+            </div>
+            <div class="homeContenedorMilista">
+                <h2>Mi Lista <hr></h2>
+                <div id="miLista" class="miListaContenedor"></div>
+            </div>
         </div>
+        
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/usuario.js"></script>
 </body>
 </html>
