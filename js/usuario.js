@@ -4,7 +4,7 @@ class Usuario{
         this.nombre = nombre;
         this.mail = mail;
         this.contrasenia = contrasenia;
-        this.milista = [];
+        // this.milista = [];
     }
 }
 $(".home").hide()
@@ -20,7 +20,4 @@ let inicioSesion = (e) => {
     $(".inicio").hide()
     $(".homeContenedorMilista").hide()
 }
-
-let datosUsu = JSON.parse(localStorage.getItem("usuarioNuevo"));
-let listaPelis = datosUsu.milista
 $("#btnInicioSesion").click(inicioSesion);

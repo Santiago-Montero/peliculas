@@ -1,4 +1,5 @@
 let arrayConPelis = []
+let miLista = []
 let peliculas = [
     {id:1, nombre: 'Star Wars', genero: 'ciencia ficcion', anio: 1977, atp: true, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508101/afterclass/ahT4ObS7XKedQkOSpGr1wQ97aKA_s86oek.jpg'},
     {id:2, nombre: 'Nobody', genero: 'accion', anio: 2021, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508101/afterclass/ddO5a3tMPpQutSDQO1bESgLWadB_nsr7h6.jpg'},
@@ -36,6 +37,7 @@ let mostrarPelis = (vectorPelis) =>{
         `)
         $("#pelis").hide()
         $("#pelis2").hide()
+        $(".homeContenedorMilista").hide()
     }
 }
 $("#barra").change(function buscar() {
@@ -43,25 +45,27 @@ $("#barra").change(function buscar() {
     let peli = $("#barra").val()
     let peliEncontrada =  peliculas.find(elemento => elemento.nombre == peli)
     arrayConPelis.push(peliEncontrada)
-    for (const peli of arrayConPelis){
-        $("#pelis2").append(`
-                            <div id= "${peli.id}" class="contenedorPeli">
-                                <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
-                                <div class="masInfo"> 
-                                <p>${peli.nombre}</p> 
-                                    <div class="masInfoBtn">
-                                        <button onclick="agregarAmiLista(${peli.id})">+</button>
+    if (arrayConPelis != null){
+        for (const peli of arrayConPelis){
+            $("#pelis2").append(`
+                                <div id= "${peli.id}" class="contenedorPeli">
+                                    <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
+                                    <div class="masInfo"> 
+                                    <p>${peli.nombre}</p> 
+                                        <div class="masInfoBtn">
+                                            <button onclick="agregarAmiLista(${peli.id})">+</button>
+                                        </div>
                                     </div>
+                                    <p>Genero: ${peli.genero}</p>
+                                    <p>Anio Estreno: ${peli.anio}</p>
                                 </div>
-                                <p>Genero: ${peli.genero}</p>
-                                <p>Anio Estreno: ${peli.anio}</p>
-                            </div>
-        `)
-        $(".home").css({    "background-image": `url("${peli.img}")`,
-                            "background-size" : "contain",
-                            "heigth" : "1000px",
-                            "width" : "1000px" 
-        })
+            `)
+            $(".home").css({    "background-image": `url("${peli.img}")`,
+                                "background-size" : "contain",
+                                "heigth" : "1000px",
+                                "width" : "1000px" 
+            })
+        }
     }
     $("#pelis2").slideDown()
     $("#pelis").hide()
@@ -107,25 +111,28 @@ $("#botonMostrar").click(function animacionBoton (){
 
 let agregarAmiLista = (id) => {
     let peliAlistada = peliculas.filter(e => e.id == id)
-    listaPelis.push(peliAlistada[0])
+    miLista.push(peliAlistada[0])
+    console.log(miLista)
 }
 $(".btnMiLista").click(function mostrarMiLista(){
     $("#pelis").hide()
     $("#pelis2").hide()
     $(".homeContenedorMilista").show()
-    for(const peli of listaPelis){
-        $("#miLista").append(`
-                            <div class="contenedorPeli">
-                                <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
-                                <div class="masInfo"> 
-                                    <p>${peli.nombre}</p> 
-                                    <div class="masInfoBtn">
-                                        <button onclick="agregarAmiLista(${peli.id})">+</button>
+    if (miLista != null){
+        for(const peli of miLista){
+            $("#miLista").append(`
+                                <div class="contenedorPeli">
+                                    <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
+                                    <div class="masInfo"> 
+                                        <p>${peli.nombre}</p> 
+                                        <div class="masInfoBtn">
+                                            <button onclick="agregarAmiLista(${peli.id})">+</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <p>Genero: ${peli.genero}</p>
-                                <p>Anio Estreno: ${peli.anio}</p>
-                            </div> `)
+                                    <p>Genero: ${peli.genero}</p>
+                                    <p>Anio Estreno: ${peli.anio}</p>
+                                </div> `)
+        }
     }
 })
 
