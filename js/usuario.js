@@ -19,5 +19,6 @@ let inicioSesion = (e) => {
     $(".home").show()
     $(".inicio").hide()
     $(".homeContenedorMilista").hide()
+    $("#pelis").fadeIn()
 }
 $("#btnInicioSesion").click(inicioSesion);

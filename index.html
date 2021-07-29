@@ -4,36 +4,41 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/estilo.css">
     <title>Peliculas</title>
 </head>
 <body>
-    <header>
-        <div class="titulo">
-            <h1>Mis Pelis</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Mis Pelis</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorias
+                            </a>
+                        <ul class="dropdown-menu categorias" aria-labelledby="navbarDropdown">
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btnMiLista" href="#" tabindex="-1" aria-disabled="true">Mi Lista</a>
+                    </li>
+                </ul>
+                <form class="buscar d-flex">
+                    <input class="form-control me-2" id ="barra" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" id ="boton" type="submit">Buscar</button>
+                </form>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Categorias</a></li>
-                <!-- <ul>
-                    <li><button>Aventura</button></li>
-                    <li><button>Terror</button></li>
-                    <li><button>Accion</button></li>
-                    <li><button>Drama</button></li>
-                    <li><button>Ciencia Ficcion</butt></li>
-                    <li><button>Animacion</button></li>
-                </ul> -->
-                <li><button class="btnMiLista">Mi Lista</button></li>
-            </ul>
-        </nav>
-        <div class="buscar">
-            <button id="boton">Buscar</button>
-            <input type="search" name="" id="barra">
-            <button class="cambiarFondo">Cambiar Fondo</button>
-        </div>
-    </header>
-    <div class="contenido">
+    </nav>
+    <div class="container">
         <div class="inicio">
             <div class="inicioForm">
                 <form class="form">
@@ -46,21 +51,24 @@
             </div>
         </div>
         <div class="home">
-            <button id="botonMostrar">Mostrar Todas Las pelis</button>
-            <div id= "pelis" class="homeContenedorPeliculas">
+            <div id= "todasLasPelis">
+                <div>
+                    <h2>Todas las Peliculas <hr></h2>
+                </div>
+                <div id="pelis" class="homeContenedorPeliculas">
+
+                </div>
             </div>
-            <div id= "pelis2" class="homeContenedorPeliculas">
-            </div>
+            <div id= "pelis2" class="homeContenedorPeliculas"></div>
             <div class="homeContenedorMilista">
                 <h2>Mi Lista <hr></h2>
                 <div id="miLista" class="miListaContenedor"></div>
             </div>
         </div>
-        
     </div>
-
-
+    
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./js/app.js"></script>
     <script src="./js/usuario.js"></script>
 </body>
