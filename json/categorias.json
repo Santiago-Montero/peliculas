@@ -1,0 +1,30 @@
+[
+    {
+        "genero": "accion", 
+        "nombre" : "Accion"
+    },
+    {
+        "genero": "animacion", 
+        "nombre" : "Animacion"
+    },
+    {
+        "genero": "aventura", 
+        "nombre" : "Aventura"
+    },
+    {
+        "genero": "cienciaficcion", 
+        "nombre" : "Ciencia ficcion"
+    },
+    {
+        "genero": "comedia", 
+        "nombre" : "Comedia"
+    },
+    {
+        "genero": "drama", 
+        "nombre" : "Drama"
+    },
+    {
+        "genero": "terror", 
+        "nombre" : "Terror"
+    }
+]

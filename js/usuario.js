@@ -1,13 +1,19 @@
-
 class Usuario{
     constructor(nombre, mail, contrasenia) {
         this.nombre = nombre;
         this.mail = mail;
         this.contrasenia = contrasenia;
-        // this.milista = [];
     }
 }
+
+let lugarInicio = true; // variable para que no pueda cargar peliculas , etc sin iniciar sesion
+
+contenedorCategorias.style.display = "none";
+contenedorBuscarPelicula.style.display = "none";
+contenedorPeliculasMilista.style.display = "none";
+
 $(".home").hide()
+
 let inicioSesion = (e) => {
     e.preventDefault()
     let usuarioNombre = $("#nombre").val()
@@ -16,9 +22,8 @@ let inicioSesion = (e) => {
     const usuarioNuevo = new Usuario (usuarioNombre,usuarioMail,usuarioContrasenia)
     localStorage.setItem("usuarioNuevo", JSON.stringify(usuarioNuevo))
     alert(`Muchas gracias ${usuarioNombre} te registrate con el mail ${usuarioMail}`);
-    $(".home").show()
-    $(".inicio").hide()
-    $(".homeContenedorMilista").hide()
-    $("#pelis").fadeIn()
+    $(".inicio").hide();
+    lugarInicio = false;
+    todasLasPeliculas();
 }
 $("#btnInicioSesion").click(inicioSesion);
