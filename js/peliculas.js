@@ -1,6 +1,6 @@
 
 
-const PELICULASJSON = "../json/peliculas.json"
+const PELICULASJSON = "./json/peliculas.json"
 
 $.getJSON(PELICULASJSON, function (respuesta, estado) {
     if(estado === "success"){
@@ -9,7 +9,7 @@ $.getJSON(PELICULASJSON, function (respuesta, estado) {
     }
 });
 
-const CATEGORIASJSON = "../json/categorias.json"
+const CATEGORIASJSON = "./json/categorias.json"
 
 $.getJSON(CATEGORIASJSON, function (respuesta, estado) {
     if(estado === "success"){
