@@ -1,7 +1,9 @@
 let arrayConPeliculas = []
 let miLista = []
 let peliculas = JSON.parse(localStorage.getItem("arrayPeliculas"))
+console.log(peliculas)
 let categorias = JSON.parse(localStorage.getItem("arrayCategorias"))
+console.log(categorias)
 
 let inicio = document.getElementById("btnInicio");
 let home = document.getElementById("home");
@@ -26,35 +28,39 @@ let todasLasPeliculas = () =>{
                                                 <div id="peliculas" class="contenedorPeliculas"></div>`;
         home.appendChild(contenedorTodasLasPeliculas)
         let peliculasContenedor = document.getElementById("peliculas"); // <div id="peliculas" class="contenedorPeliculas"></div>
-        for (const peli of peliculas){
-            let todasLasPeliculas = document.createElement("div");
-            todasLasPeliculas.setAttribute("id", "contenedorTodasLasPeliculas");
-            todasLasPeliculas.setAttribute("class", "contenedor");
-            todasLasPeliculas.innerHTML = `<div id= "${peli.id}" class="contenedorPeli">
-                                                <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
-                                                <div class="masInfo"> 
-                                                <p>${peli.nombre}</p> 
-                                                    <div class="masInfoBtn">
-                                                        <button onclick="agregarAmiLista(${peli.id})">+</button>
+        if(peliculas != null){
+            for (const peli of peliculas){
+                let todasLasPeliculas = document.createElement("div");
+                todasLasPeliculas.setAttribute("id", "contenedorTodasLasPeliculas");
+                todasLasPeliculas.setAttribute("class", "contenedor");
+                todasLasPeliculas.innerHTML = `<div id= "${peli.id}" class="contenedorPeli">
+                                                    <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
+                                                    <div class="masInfo"> 
+                                                    <p>${peli.nombre}</p> 
+                                                        <div class="masInfoBtn">
+                                                            <button onclick="agregarAmiLista(${peli.id})">+</button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="masInfoTexto">
-                                                        <p>Genero: ${peli.genero}</p>
-                                                        <p>Anio Estreno: ${peli.anio}</p>
-                                                </div>
-                                            </div>`
-            peliculasContenedor.appendChild(todasLasPeliculas)
+                                                    <div class="masInfoTexto">
+                                                            <p>Genero: ${peli.genero}</p>
+                                                            <p>Anio Estreno: ${peli.anio}</p>
+                                                    </div>
+                                                </div>`
+                peliculasContenedor.appendChild(todasLasPeliculas)
+            }
         }
     }else{
-        alert("inicia sesion para navegar por la pagina")
-    }
+            alert("inicia sesion para navegar por la pagina")
+        }
 }
 let cargarCategorias = () =>{
-    for(const cate of categorias){
-        let liCategorias = document.createElement("li");
-        liCategorias.setAttribute("class","dropdown-item");
-        liCategorias.innerHTML = `<a id=${cate.genero} onclick="mostrarCategoria(${cate.genero})">${cate.nombre}</a>`
-        categoriasLista.appendChild(liCategorias)
+    if (categorias !== null){
+        for(const cate of categorias){
+            let liCategorias = document.createElement("li");
+            liCategorias.setAttribute("class","dropdown-item");
+            liCategorias.innerHTML = `<a id=${cate.genero} onclick="mostrarCategoria(${cate.genero})">${cate.nombre}</a>`
+            categoriasLista.appendChild(liCategorias)
+        }
     }
 }
 let mostrarCategoria = (generoSeleccionado) =>{
