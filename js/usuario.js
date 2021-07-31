@@ -12,9 +12,6 @@ contenedorCategorias.style.display = "none";
 contenedorBuscarPelicula.style.display = "none";
 contenedorPeliculasMilista.style.display = "none";
 
-window.addEventListener('DOMContentLoaded', function () {
-    console.log('El DOM esta listo');
-});
 $(".home").hide()
 
 let inicioSesion = (e) => {
@@ -30,3 +27,4 @@ let inicioSesion = (e) => {
     todasLasPeliculas();
 }
 $("#btnInicioSesion").click(inicioSesion);
+todasLasPeliculas();
