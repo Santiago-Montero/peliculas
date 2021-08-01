@@ -1,9 +1,8 @@
 let arrayConPeliculas = []
 let miLista = []
-let peliculas = JSON.parse(localStorage.getItem("arrayPeliculas"))
-console.log(peliculas)
+let peliculas  = JSON.parse(localStorage.getItem("arrayPeliculas"))
 let categorias = JSON.parse(localStorage.getItem("arrayCategorias"))
-console.log(categorias)
+
 
 let inicio = document.getElementById("btnInicio");
 let home = document.getElementById("home");
@@ -22,28 +21,30 @@ let todasLasPeliculas = () =>{
         contenedorCategorias.style.display = "none";
         contenedorBuscarPelicula.style.display = "none";
         contenedorPeliculasMilista.style.display = "none";
-        contenedorTodasLasPeliculas.innerHTML = `<div class="contenedorPeliculasTitulo">
+        contenedorTodasLasPeliculas.innerHTML = `<div class="contenedorPeliculasTitulo contenedor"">
                                                     <h2>Todas las Peliculas <hr></h2>
                                                 </div>
                                                 <div id="peliculas" class="contenedorPeliculas"></div>`;
         home.appendChild(contenedorTodasLasPeliculas)
         let peliculasContenedor = document.getElementById("peliculas"); // <div id="peliculas" class="contenedorPeliculas"></div>
-        if(peliculas != null){
+        if(peliculas){
             for (const peli of peliculas){
                 let todasLasPeliculas = document.createElement("div");
                 todasLasPeliculas.setAttribute("id", "contenedorTodasLasPeliculas");
                 todasLasPeliculas.setAttribute("class", "contenedor");
                 todasLasPeliculas.innerHTML = `<div id= "${peli.id}" class="contenedorPeli">
                                                     <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
-                                                    <div class="masInfo"> 
-                                                    <p>${peli.nombre}</p> 
-                                                        <div class="masInfoBtn">
-                                                            <button onclick="agregarAmiLista(${peli.id})">+</button>
+                                                    <div class="contenedorInfo">
+                                                        <div class="masInfo"> 
+                                                            <p>${peli.nombre}</p> 
+                                                            <div class="masInfoBtn">
+                                                                <button onclick="agregarAmiLista(${peli.id})">+</button>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="masInfoTexto">
-                                                            <p>Genero: ${peli.genero}</p>
-                                                            <p>Anio Estreno: ${peli.anio}</p>
+                                                        <div class="masInfoTexto">
+                                                                <p>Genero: ${peli.genero}</p>
+                                                                <p>Anio Estreno: ${peli.anio}</p>
+                                                        </div>
                                                     </div>
                                                 </div>`
                 peliculasContenedor.appendChild(todasLasPeliculas)
@@ -54,7 +55,7 @@ let todasLasPeliculas = () =>{
         }
 }
 let cargarCategorias = () =>{
-    if (categorias !== null){
+    if (categorias){
         for(const cate of categorias){
             let liCategorias = document.createElement("li");
             liCategorias.setAttribute("class","dropdown-item");
@@ -78,21 +79,25 @@ let mostrarCategoria = (generoSeleccionado) =>{
         home.appendChild(contenedorCategorias)
         let peliculasCategoria = document.getElementById("peliculasCategoria")
         let filtradas = peliculas.filter(e => e.genero == generoSeleccionado.id)
-        if( filtradas !== null){
+        if(filtradas){
             for (let i = 0; i < filtradas.length; i++){
                 let peliculasFiltradas = document.createElement("div");
                 peliculasFiltradas.setAttribute("id", "contenedorPeliculasCategoria");
                 peliculasFiltradas.setAttribute("class", "contenedor");
-                peliculasFiltradas.innerHTML = (`<div class="contenedorPeli">
+                peliculasFiltradas.innerHTML = (`<div id= "${filtradas[i].id}" class="contenedorPeli">
                                                     <img src="${filtradas[i].img}" class="contenedorPeliImg" alt="${filtradas[i].nombre}">
-                                                    <div class="masInfo"> 
-                                                        <p>${filtradas[i].nombre}</p> 
-                                                        <div class="masInfoBtn">
-                                                            <button onclick="agregarAmiLista(${filtradas[i].id})">+</button>
+                                                    <div class="contenedorInfo">
+                                                        <div class="masInfo"> 
+                                                            <p>${filtradas[i].nombre}</p> 
+                                                            <div class="masInfoBtn">
+                                                                <button onclick="agregarAmiLista(${filtradas[i].id})">+</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="masInfoTexto">
+                                                            <p>Genero: ${filtradas[i].genero}</p>
+                                                            <p>Anio Estreno: ${filtradas[i].anio}</p>
                                                         </div>
                                                     </div>
-                                                    <p>Genero: ${filtradas[i].genero}</p>
-                                                    <p>Anio Estreno: ${filtradas[i].anio}</p>
                                                 </div>`)
                 peliculasCategoria.appendChild(peliculasFiltradas);
             }
@@ -101,6 +106,7 @@ let mostrarCategoria = (generoSeleccionado) =>{
         alert("inicia sesion para navegar por la pagina")
     }
 }
+
 let buscarPelicula = () =>{
     let peliculaBuscada = document.getElementById("barra").value
     peliculaBuscada = peliculaBuscada.toLowerCase();
@@ -124,17 +130,21 @@ let buscarPelicula = () =>{
                 let peliculaEncontrada = document.createElement("div");
                 peliculaEncontrada.setAttribute("id", "contenedorPeliculaBuscada");
                 peliculaEncontrada.setAttribute("class", "contenedor");
-                peliculaEncontrada.innerHTML = `<div id="${peli.id}" class="contenedorPeli">
-                                                            <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
-                                                            <div class="masInfo"> 
+                peliculaEncontrada.innerHTML = `<div id= "${peli.id}" class="contenedorPeli">
+                                                    <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
+                                                    <div class="contenedorInfo">
+                                                        <div class="masInfo"> 
                                                             <p>${peli.nombre}</p> 
-                                                                <div class="masInfoBtn">
-                                                                    <button onclick="agregarAmiLista(${peli.id})">+</button>
-                                                                </div>
+                                                            <div class="masInfoBtn">
+                                                                <button onclick="agregarAmiLista(${peli.id})">+</button>
                                                             </div>
-                                                            <p>Genero: ${peli.genero}</p>
-                                                            <p>Anio Estreno: ${peli.anio}</p>
-                                                        </div>`
+                                                        </div>
+                                                        <div class="masInfoTexto">
+                                                                <p>Genero: ${peli.genero}</p>
+                                                                <p>Anio Estreno: ${peli.anio}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>`
                 peliculasContenedor2.appendChild(peliculaEncontrada);
             }
         }else{
@@ -167,22 +177,23 @@ let mostrarMiLista = () =>{
                                                 </div>`;
         home.appendChild(contenedorPeliculasMilista)
         let miListaContenedor = document.getElementById("miLista")
-        if (miLista !== null){
+        if (miLista){
             for(const peli of miLista){
                 let peliculaEnMiLista = document.createElement("div");
                 peliculaEnMiLista.setAttribute("id", "contenedorPeliculasMilista");
                 peliculaEnMiLista.setAttribute("class", "contenedor");
-                peliculaEnMiLista.innerHTML =`<div class="contenedorPeli">
+                peliculaEnMiLista.innerHTML =`<div id= "${peli.id}" class="contenedorPeli">
                                                 <img src="${peli.img}" class="contenedorPeliImg" alt="${peli.nombre}">
-                                                <div class="masInfo"> 
-                                                    <p>${peli.nombre}</p> 
-                                                    <div class="masInfoBtn">
-                                                        <button onclick="agregarAmiLista(${peli.id})">+</button>
+                                                <div class="contenedorInfo">
+                                                    <div class="masInfo"> 
+                                                        <p>${peli.nombre}</p> 
+                                                    </div>
+                                                    <div class="masInfoTexto">
+                                                            <p>Genero: ${peli.genero}</p>
+                                                            <p>Anio Estreno: ${peli.anio}</p>
                                                     </div>
                                                 </div>
-                                                <p>Genero: ${peli.genero}</p>
-                                                <p>Anio Estreno: ${peli.anio}</p>
-                                            </div> `
+                                            </div>`
                 miListaContenedor.appendChild(peliculaEnMiLista);
             }
         }
@@ -196,5 +207,4 @@ inicio.addEventListener("click", todasLasPeliculas)
 botonBusqueda.addEventListener("click", buscarPelicula);
 botonMiLista.addEventListener("click", mostrarMiLista);
 
-cargarCategorias();
 

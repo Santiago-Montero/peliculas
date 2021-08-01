@@ -12,8 +12,8 @@ contenedorCategorias.style.display = "none";
 contenedorBuscarPelicula.style.display = "none";
 contenedorPeliculasMilista.style.display = "none";
 
-$(".home").hide()
 
+$(".home").hide()
 let inicioSesion = (e) => {
     e.preventDefault()
     let usuarioNombre = $("#nombre").val()
@@ -27,4 +27,5 @@ let inicioSesion = (e) => {
     todasLasPeliculas();
 }
 $("#btnInicioSesion").click(inicioSesion);
-todasLasPeliculas();
+
+cargarCategorias();

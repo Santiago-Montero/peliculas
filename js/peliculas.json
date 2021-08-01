@@ -30,7 +30,7 @@
         "id":4,
         "nombre": "Interstellar", 
         "busqueda": "interstellar",
-        "genero": "ciencia ficcion", 
+        "genero": "cienciaficcion", 
         "anio": 2014, 
         "atp": false, 
         "img":"https://res.cloudinary.com/vaporbox/image/upload/v1625508102/afterclass/nrSaXF39nDfAAeLKksRCyvSzI2a_hvgguc.jpg"
