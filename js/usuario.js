@@ -6,6 +6,7 @@ class Usuario{
     }
 }
 
+
 let lugarInicio = true; // variable para que no pueda cargar peliculas , etc sin iniciar sesion
 
 contenedorCategorias.style.display = "none";
