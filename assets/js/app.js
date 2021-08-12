@@ -13,10 +13,10 @@ let categorias = [
 ]
 
 let peliculas = [
-    {id:1, nombre: 'Star Wars',busqueda :'star wars', genero: 'ciencia ficcion', anio: 1977, atp: true, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508101/afterclass/ahT4ObS7XKedQkOSpGr1wQ97aKA_s86oek.jpg'},
+    {id:1, nombre: 'Star Wars',busqueda :'star wars', genero: 'cienciaficcion', anio: 1977, atp: true, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508101/afterclass/ahT4ObS7XKedQkOSpGr1wQ97aKA_s86oek.jpg'},
     {id:2, nombre: 'Nobody',busqueda :'nobody', genero: 'accion', anio: 2021, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508101/afterclass/ddO5a3tMPpQutSDQO1bESgLWadB_nsr7h6.jpg'},
     {id:3, nombre: 'Mortal Kombat',busqueda :'mortal kombat', genero: 'aventura', anio: 2021, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508102/afterclass/t2GbiMJfO8txoihdJC8RsfK1ds7_e9o7v4.jpg'},
-    {id:4, nombre: 'Interstellar',busqueda :'interstellar', genero: 'ciencia ficcion', anio: 2014, atp: false, img: 'https://res.cloudinary.com/vaporbox/image/upload/v1625508102/afterclass/nrSaXF39nDfAAeLKksRCyvSzI2a_hvgguc.jpg'},
+    {id:4, nombre: 'Interstellar',busqueda :'interstellar', genero: 'cienciaficcion', anio: 2014, atp: false, img: 'https://res.cloudinary.com/vaporbox/image/upload/v1625508102/afterclass/nrSaXF39nDfAAeLKksRCyvSzI2a_hvgguc.jpg'},
     {id:5, nombre: 'The Big Lebowsky',busqueda :'the big lebowsky', genero: 'comedia', anio: 1998, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508101/afterclass/EJFkJD9BH400jfzKz3W5xLYHQa_ic29jw.jpg'},
     {id:6, nombre: 'Mulan',busqueda :'mulan', genero: 'aventura', anio: 2020, atp: true, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508101/afterclass/72XYwdIugXnjHxS6upI6U0yeTBU_lk2u9w.jpg' },
     {id:7, nombre: 'A Quiet Place',busqueda :'a quiet place', genero: 'terror', anio: 2018, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625508101/afterclass/5pairI20KJs1SEa4Z8yAsPR779m_a9uwch.jpg'},
@@ -25,10 +25,10 @@ let peliculas = [
     {id:10, nombre: 'Luca',busqueda :'luca' , genero: 'animacion', anio: 2020, atp: true, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625540511/afterclass/pr06RihHOGE3waZQx5fs2WYUdwr_a7dvh2.jpg'},
     {id:11, nombre: 'Spirit',busqueda :'spirit', genero: 'animacion', anio: 2021, atp: true, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625540564/afterclass/mptEtOkw906BJuD9rRUKG5sr5E9_s43aw0.jpg'},
     {id:12, nombre: 'Monster Inc.',busqueda :'monster inc', genero: 'animacion', anio: 2001, atp: true, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625540669/afterclass/jTE3BLVCpYaR71L2U8SHV22HvEr_fbtiu6.jpg'},
-    {id:13, nombre: 'Blade Runner',busqueda :'blade runner', genero: 'ciencia ficcion', anio: 1982, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625540759/afterclass/k7tpmwwSqwJ6l1f1FqDMnM7x5c2_tgukok.jpg'},
+    {id:13, nombre: 'Blade Runner',busqueda :'blade runner', genero: 'cienciaficcion', anio: 1982, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625540759/afterclass/k7tpmwwSqwJ6l1f1FqDMnM7x5c2_tgukok.jpg'},
     {id:14, nombre: 'Joker',busqueda :'joker', genero: 'drama', anio: 2019, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625540959/afterclass/v0eQLbzT6sWelfApuYsEkYpzufl_e85kyq.jpg'},
     {id:15, nombre: 'Rey León',busqueda :'rey leon', genero: 'animacion', anio: 1994, atp: true, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625541034/afterclass/b0MxU37dNmMwKtoPVYPKOZSIrIn_xx4f3x.jpg'},
-    {id:16, nombre: 'Jurassic Park',busqueda :' jurassic park', genero: 'ciencia ficcion', anio: 1993, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625541181/afterclass/1r8TWaAExHbFRzyqT3Vcbq1XZQb_jotm6u.jpg'},
+    {id:16, nombre: 'Jurassic Park',busqueda :' jurassic park', genero: 'cienciaficcion', anio: 1993, atp: false, img:'https://res.cloudinary.com/vaporbox/image/upload/v1625541181/afterclass/1r8TWaAExHbFRzyqT3Vcbq1XZQb_jotm6u.jpg'},
 ]
 
 let inicio = document.getElementById("btnInicio");
@@ -136,6 +136,7 @@ let mostrarCategoria = (generoSeleccionado) =>{
     }else{
         alert("inicia sesion para navegar por la pagina")
     }
+    
 }
 
 let buscarPelicula = () =>{
@@ -193,6 +194,7 @@ let buscarPelicula = () =>{
     }else{
         alert("inicia sesion para navegar por la pagina")
     }
+    contenedorCategorias.remove()
 }
 let agregarAmiLista = (idLista) =>{
     let peliAlistada = peliculas.filter(e => e.id == idLista)
